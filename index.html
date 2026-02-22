@@ -69,6 +69,21 @@
             margin-bottom: 2rem;
         }
 
+        .hero-video {
+            max-width: 960px;
+            margin: 2.5rem auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+
+        .hero-video video {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -286,6 +301,7 @@
 
         @media (max-width: 600px) {
             .hero { padding: 3rem 1rem 4rem; }
+            .hero-video { margin: 1.5rem 1rem 1.5rem; }
             .container { padding: 0 1rem; }
             section { padding: 2rem 0; }
         }
@@ -295,6 +311,11 @@
     <header class="hero">
         <h1>VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic</h1>
         <p class="subtitle">Vehicle-Vulnerable Road User Interaction Dataset from Urban Villages in Shenzhen</p>
+        <div class="hero-video">
+            <video src="video/visu1_web.mp4" controls playsinline preload="metadata" muted loop autoplay>
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <a href="https://github.com/zzi4/VRUD" class="badge">📦 View Dataset on GitHub</a>
     </header>
 
