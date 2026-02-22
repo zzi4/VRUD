@@ -72,16 +72,20 @@
         .hero-video {
             max-width: 960px;
             margin: 2.5rem auto 2rem;
+            padding: 0;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            background: #000;
+            aspect-ratio: 16/9;
         }
 
         .hero-video video {
             display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
         }
 
         .badge {
@@ -312,7 +316,8 @@
         <h1>VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic</h1>
         <p class="subtitle">Vehicle-Vulnerable Road User Interaction Dataset from Urban Villages in Shenzhen</p>
         <div class="hero-video">
-            <video src="video/visu1_web.mp4" controls playsinline preload="metadata" muted loop autoplay>
+            <video controls playsinline preload="auto" muted loop autoplay poster="img/trajectory_visu/frame.jpg">
+                <source src="video/visu1_web.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
