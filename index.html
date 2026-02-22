@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a232e;
+            --bg-card: #242f3d;
+            --accent: #4dabf7;
+            --accent-soft: #339af0;
+            --text-primary: #e8ecf0;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #51cf66;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #0f172a 50%, #0c1222 100%);
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 400;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0.5rem;
+        }
+
+        .badge:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .abstract {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .abstract p {
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .figure {
+            margin: 2.5rem 0;
+            text-align: center;
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: 10px;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            background: #ffffff;
+        }
+
+        .figure-caption {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .figure-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .authors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .author {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .author .affiliation {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .keyword {
+            padding: 0.35rem 0.8rem;
+            background: var(--bg-card);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent-soft);
+        }
+
+        ul {
+            margin: 1rem 0 1rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        th {
+            background: var(--bg-card);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:hover td {
+            background: rgba(77, 171, 247, 0.05);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, transparent, var(--bg-secondary));
+        }
+
+        .cta-section .badge {
+            font-size: 1rem;
+            padding: 0.9rem 1.8rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 3rem 1rem 4rem; }
+            .container { padding: 0 1rem; }
+            section { padding: 2rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic</h1>
+        <p class="subtitle">Vehicle-Vulnerable Road User Interaction Dataset from Urban Villages in Shenzhen</p>
+        <a href="https://github.com/zzi4/VRUD" class="badge">📦 View Dataset on GitHub</a>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Abstract</h2>
+            <div class="abstract">
+                <p>The Operational Design Domain (ODD) of Level 4 (L4) autonomous driving confronts formidable challenges in urban mixed-traffic environments, primarily due to the high density of Vulnerable Road Users (VRUs) and unpredictable interaction behaviors. However, existing open-source datasets predominantly focus on structured scenarios such as highways or regulated intersections, leaving a critical gap in data representing chaotic, unstructured urban environments.</p>
+                <p>To address this, we propose an efficient, high-precision method for constructing drone-based datasets and establish the <strong>Vehicle-Vulnerable Road User Interaction Dataset (VRUD)</strong>. Distinct from prior works, VRUD is collected from typical "Urban Villages" in Shenzhen, characterized by loose traffic supervision and extreme occlusion. The dataset comprises <strong>4 hours of 4K/30Hz recording</strong>, containing <strong>11,479 VRU trajectories</strong> and <strong>1,939 vehicle trajectories</strong>. A key differentiator of VRUD is its composition: VRUs account for about <strong>87%</strong> of all traffic participants, significantly exceeding the proportions in existing benchmarks.</p>
+                <p>Furthermore, unlike datasets that only provide raw trajectories, we extracted <strong>4,002 multi-agent interaction scenarios</strong> based on a novel VTTC threshold, supported by standard OpenDRIVE HD maps. This study provides valuable, rare edge-case resources for enhancing the safety performance of ADS in complex, unstructured urban environments.</p>
+            </div>
+            <div class="keywords">
+                <span class="keyword">Urban mixed traffic</span>
+                <span class="keyword">Vulnerable Road Users</span>
+                <span class="keyword">Drone-based dataset</span>
+                <span class="keyword">Traffic conflict extraction</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Authors</h2>
+            <div class="authors">
+                <span class="author">Ziyu Wang </span>
+                <span class="author">Hongrui Kou</span>
+                <span class="author">Cheng Wang</span>
+                <span class="author">Ruochen Li</span>
+                <span class="author">Hubert P. H. Shum</span>
+                <span class="author">Yuxin Zhang (Corresponding)</span>
+            </div>
+            <p><small>National Key Laboratory of Automotive Chassis Integration and Bionics, Jilin University · Heriot-Watt University · Durham University</small></p>
+        </section>
+
+        <section>
+            <h2>Dataset Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">4h</div>
+                    <div class="label">4K/30Hz Recording</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">11,479</div>
+                    <div class="label">VRU Trajectories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">1,939</div>
+                    <div class="label">Vehicle Trajectories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">4,002</div>
+                    <div class="label">Interaction Scenarios</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">87%</div>
+                    <div class="label">VRU Proportion</div>
+                </div>
+            </div>
+
+            <div class="figure">
+                <img src="img/trajectory_visu/frame.jpg" alt="Detection and tracking results in VRUD" width="100%">
+                <p class="figure-caption">The detection results of different types of targets in VRUD are represented by bounding boxes in distinct colors, and the tracking trajectories are denoted by thin lines in the corresponding colors.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Collection Sites</h2>
+            <p>Data was collected from two irregular intersections near residential areas in an urban village in Shenzhen, China. The traffic participants are highly diverse: buses, ride-hailing vehicles, food delivery electric bikes, and pedestrians. The surroundings include bus stops, apartments, and snack streets, with no traffic surveillance cameras.</p>
+            <div class="figure-row">
+                <div class="figure">
+                    <img src="img/trajectory_visu/29s_frame.jpg" alt="Irregular intersection scene" width="100%">
+                    <p class="figure-caption">Irregular intersection with two-way single-lane traffic, snack streets and residential apartment complexes.</p>
+                </div>
+                <div class="figure">
+                    <img src="img/trajectory_visu/78s_frame.jpg" alt="Two-way road scene" width="100%">
+                    <p class="figure-caption">Two-way single-lane road with residential apartments, bus stops and roadside parking.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Trajectory Visualization</h2>
+            <p>Each subplot visualizes all annotated trajectories: (a) cars, buses, and trucks; (b) pedestrians and cyclists; (c) motorcycles and tricycles. The comparison reveals that VRU trajectory patterns are significantly more disordered and scattered.</p>
+            <div class="figure">
+                <img src="img/trajectory_visu/vehicle_trajectories_plot_4k.jpg" alt="Vehicle trajectories" width="100%">
+                <p class="figure-caption">(a) Cars, buses, and trucks</p>
+            </div>
+            <div class="figure">
+                <img src="img/trajectory_visu/vru_trajectories_plot_1_4k.jpg" alt="Pedestrian and cyclist trajectories" width="100%">
+                <p class="figure-caption">(b) Pedestrians and cyclists</p>
+            </div>
+            <div class="figure">
+                <img src="img/trajectory_visu/vru_trajectories_plot_2_4k.jpg" alt="Motorcycle and tricycle trajectories" width="100%">
+                <p class="figure-caption">(c) Motorcycles and tricycles</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Data Validation</h2>
+            <p>Data accuracy was verified using a test vehicle equipped with RT inertial navigation equipment. A soft target vehicle performed chasing maneuvers; relative distance and velocity were compared against ground truth.</p>
+            <div class="figure-row">
+                <div class="figure">
+                    <img src="img/test1.jpg" alt="Relative distance validation" width="100%">
+                    <p class="figure-caption">Relative distance: drone vs. RT inertial navigation</p>
+                </div>
+                <div class="figure">
+                    <img src="img/test2.jpg" alt="Velocity validation" width="100%">
+                    <p class="figure-caption">Soft target vehicle velocity (Vx) comparison</p>
+                </div>
+                <div class="figure">
+                    <img src="img/test3.png" alt="Experimental setup" width="100%">
+                    <p class="figure-caption">Experimental setup with RT inertial navigation equipment</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>VTTC-Based Interaction Extraction</h2>
+            <p>We introduce Vector Time to Collision (VTTC) as a Surrogate Safety Measure to quantify interaction relevance. The upper quartile (Q3) value of 1.53s was adopted as the filtering threshold to maximize complex scenario retention while eliminating non-interactive noise.</p>
+            <div class="figure">
+                <img src="img/bhr_define/scenario_example.png" alt="Multi-agent interaction scenario" width="100%">
+                <p class="figure-caption">Multi-agent interaction scenario. Ego vehicle (ID 3913) interacts with highlighted critical targets.</p>
+            </div>
+            <div class="figure-row">
+                <div class="figure">
+                    <img src="img/Bar/VTTC2.png" alt="VTTC formula" width="100%">
+                </div>
+                <div class="figure">
+                    <img src="img/Bar/VTTC1.png" alt="VTTC example" width="100%">
+                </div>
+            </div>
+            <div class="figure">
+                <img src="img/Bar/mean_vttc_boxplot_by_n_vru_interactors.png" alt="VTTC boxplot" width="100%">
+                <p class="figure-caption">Positive correlation between VRU count, complexity, and mean VTTC.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Dataset Statistics</h2>
+            <div class="figure">
+                <img src="img/Bar/datastatics_no_border.png" alt="Category distribution and velocity statistics" width="100%">
+                <p class="figure-caption">Categorical distribution and average velocity statistics. Pedestrians and motorcycles predominate; motorcycles show high traffic efficiency in unstructured environments.</p>
+            </div>
+
+            <h3>Comparison with Existing Datasets</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Length</th>
+                        <th>Trajectories</th>
+                        <th>Road User Types</th>
+                        <th>HD Map</th>
+                        <th>Sample Freq</th>
+                        <th>Behavior Extraction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>INTERACTION</td>
+                        <td>16.5 h</td>
+                        <td>40054</td>
+                        <td>Pedestrian, bicycle, car</td>
+                        <td>lanelet2</td>
+                        <td>10 Hz</td>
+                        <td>no</td>
+                    </tr>
+                    <tr>
+                        <td>InD</td>
+                        <td>10.0 h</td>
+                        <td>13599</td>
+                        <td>Pedestrian, bicycle, car, bus</td>
+                        <td>lanelet2</td>
+                        <td>25 Hz</td>
+                        <td>no</td>
+                    </tr>
+                    <tr>
+                        <td>SIND</td>
+                        <td>7.0 h</td>
+                        <td>13248</td>
+                        <td>Car, bus, truck, bicycle, motorcycle, tricycle, pedestrian</td>
+                        <td>lanelet2</td>
+                        <td>10 Hz</td>
+                        <td>no</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VRUD (ours)</strong></td>
+                        <td>4.0 h</td>
+                        <td><strong>12888</strong></td>
+                        <td>Car, bus, truck, bicycle, motorcycle, tricycle, pedestrian</td>
+                        <td><strong>OpenDRIVE</strong></td>
+                        <td><strong>30 Hz</strong></td>
+                        <td><strong>yes</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="figure">
+                <img src="img/Contrast_datasets/contrast_VRUD.png" alt="VRUD data distribution" width="100%">
+            </div>
+            <div class="figure-row">
+                <div class="figure">
+                    <img src="img/Contrast_datasets/contrast_inD.png" alt="inD comparison" width="100%">
+                </div>
+                <div class="figure">
+                    <img src="img/Contrast_datasets/contrast_SIND.png" alt="SIND comparison" width="100%">
+                </div>
+                <div class="figure">
+                    <img src="img/Contrast_datasets/contrast_INTERACTION.png" alt="INTERACTION comparison" width="100%">
+                </div>
+            </div>
+            <p class="figure-caption" style="margin-top:0.5rem">VRUD vs. inD, SIND, and INTERACTION: VRUs account for nearly half of VRUD, significantly exceeding other datasets.</p>
+        </section>
+
+        <section>
+            <h2>Behavioral Characterization</h2>
+            <p>The ego-vehicle maintains a tactical velocity corridor (17.5–20.0 km/h) to manage latent conflicts. VTTC distribution consistently clusters around 0.7s, serving as a proxy for interaction relevance. The 0.7s threshold establishes a robust quantitative filter for extracting high-value, interaction-critical samples.</p>
+            <div class="figure">
+                <img src="img/Bar/ego_speed_vru_hist.png" alt="Ego speed vs VRU count" width="100%">
+                <p class="figure-caption">Empirical ego-speed distribution relative to VRU counts. Quasi-normal distribution highlights low-speed maneuvering in urban mixed-traffic.</p>
+            </div>
+            <div class="figure">
+                <img src="img/Bar/vru_class_vru_speed_vttc_hist.png" alt="Velocity-VTTC coupling" width="100%">
+                <p class="figure-caption">Characterization of interaction intensity via velocity-VTTC coupling.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contributions</h2>
+            <ul>
+                <li><strong>Large-scale, high-resolution dataset</strong> focusing on chaotic urban environments, featuring diverse VRU types and distinct mixed traffic characteristics.</li>
+                <li><strong>Comprehensive data processing pipeline</strong> with a standardized scenario library based on novel VTTC threshold, supported by OpenDRIVE HD maps.</li>
+                <li><strong>Detailed statistical analysis</strong> of VRU behaviors, revealing unique interaction patterns to support downstream ADS tasks.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Format</h2>
+            <ul>
+                <li><strong>Trajectory data:</strong> Static (dimensions, position, category, heading) and dynamic (velocity, acceleration, yaw rate) attributes in CSV format at 30 Hz.</li>
+                <li><strong>Map data:</strong> OpenDRIVE HD maps, high-resolution aerial base maps, calibration and conversion coefficients. All geographic information is anonymized.</li>
+                <li><strong>Interaction behavior data:</strong> Scenario index with Ego-vehicle ID, temporal window, and relevant traffic participant identifiers.</li>
+            </ul>
+        </section>
+
+        <div class="cta-section">
+            <h2>Get the Dataset</h2>
+            <p style="margin-bottom: 1.5rem;">VRUD is fully open-source. Download, explore, and contribute.</p>
+            <a href="https://github.com/zzi4/VRUD" class="badge">📦 Download VRUD on GitHub</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>VRUD · Vehicle-Vulnerable Road User Interaction Dataset · Jilin University · Heriot-Watt University · Durham University</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2025 · For research use in autonomous driving and VRU interaction studies.</p>
+    </footer>
+</body>
+</html>
