@@ -27,7 +27,7 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 
 To request access to VRUD, choose either of the following methods:
 
-**Option 1 — GitHub Issue (recommended):** [Submit a Data Access Request](https://github.com/zzi4/VRUD/issues/new?template=data_access_request.yml) directly on GitHub. No email required.
+**Option 1 — GitHub Issue (recommended):** [Submit a Data Access Request](https://github.com/zzi4/VRUD/issues/new/choose) directly on GitHub. No email required.
 
 **Option 2 — Email:** Download the form, fill it in, and send to [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn).
 [Download Application Form (Word)](./VRUD_Access_Application_Form.docx)
