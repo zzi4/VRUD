@@ -23,11 +23,6 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 - **VTTC-based scenario extraction** — 4,002 multi-agent interaction samples
 - **7 categories** — Cars, buses, trucks, bicycles, motorcycles, tricycles, pedestrians
 
-## Dataset Access
-
-- **GitHub:** [https://github.com/zzi4/VRUD](https://github.com/zzi4/VRUD)
-- **Contact:** To request access to the dataset, please email [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn). Cloud storage download links will be added soon.
-
 ## Data Access Application
 
 To request access to VRUD, choose either of the following methods:
