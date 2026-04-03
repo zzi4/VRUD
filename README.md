@@ -30,19 +30,14 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 
 ## Data Access Application
 
-To request access to VRUD, please download and fill in the application form below, then send it to one of the contact emails above.
+To request access to VRUD, choose either of the following methods:
 
-**[Download Application Form (Word)](./VRUD_Access_Application_Form.docx)**
+**Option 1 — GitHub Issue (recommended):** [Submit a Data Access Request](https://github.com/zzi4/VRUD/issues/new?template=data_access_request.yml) directly on GitHub. No email required.
 
-The form includes the following information:
+**Option 2 — Email:** Download the form, fill it in, and send to [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn) or [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn).
+[Download Application Form (Word)](./VRUD_Access_Application_Form.docx)
 
-| Field | Description |
-|-------|-------------|
-| **Full Name** | Applicant's full name |
-| **Email** | Contact email address |
-| **Institution / Company** | Affiliated university, research institute, or company |
-| **Primary Purpose** | Academic research / commercial application / teaching / other |
-| **Detailed Description** | Please describe your research questions or application scenario clearly — a thorough description helps us process your request faster and allows us to recommend the most relevant data subsets |
+Both options require: **Full Name**, **Institution / Company**, **Detailed Description of Intended Use**, and **Acknowledgement**.
 
 ## Free Data Processing Service
 

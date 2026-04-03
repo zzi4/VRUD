@@ -1,0 +1,47 @@
+name: Data Access Request
+description: Apply for access to the VRUD dataset
+title: "[Data Request] "
+labels: ["data-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in the **VRUD** dataset. Please fill in the fields below and submit — we will get back to you as soon as possible.
+
+  - type: input
+    id: name
+    attributes:
+      label: Full Name
+      placeholder: e.g., Zhang San
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution / Company
+      placeholder: e.g., Jilin University / Company Name
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Detailed Description of Intended Use
+      description: Please describe your research questions, application scenario, or project goals.
+      placeholder: e.g., We are studying pedestrian behavior in unstructured traffic environments and plan to use VRUD for...
+      rows: 6
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I will use VRUD solely for the purpose described above.
+          required: true
+        - label: I will include proper citation in any publications using VRUD.
+          required: true
+        - label: I will not redistribute the raw dataset without prior written permission.
+          required: true
