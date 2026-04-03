@@ -39,11 +39,14 @@ Ziyu Wang, Hongrui Kou · Cheng Wang · Ruochen Li, Hubert P. H. Shum · **Yuxin
 If you use VRUD in your research, please cite our paper:
 
 ```bibtex
-@article{wang2025vrud,
-  title={VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic},
-  author={Wang, Ziyu and Kou, Hongrui and Wang, Cheng and Li, Ruochen and Shum, Hubert P. H. and Zhang, Yuxin},
-  journal={IEEE},
-  year={2025}
+@misc{wang2026vruddronedatasetcomplex,
+      title={VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic}, 
+      author={Ziyu Wang and Hongrui Kou and Cheng Wang and Ruochen Li and Hubert P. H. Shum and Amir Atapour-Abarghouei and Yuxin Zhang},
+      year={2026},
+      eprint={2604.01134},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2604.01134}, 
 }
 ```
 
