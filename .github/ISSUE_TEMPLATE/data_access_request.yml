@@ -1,7 +1,6 @@
 name: Data Access Request
 description: Apply for access to the VRUD dataset
 title: "[Data Request] "
-labels: ["data-request"]
 body:
   - type: markdown
     attributes:
