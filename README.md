@@ -26,7 +26,7 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 ## Dataset Access
 
 - **GitHub:** [https://github.com/zzi4/VRUD](https://github.com/zzi4/VRUD)
-- **Project Page:** [View full paper showcase →](index.html) *(enable GitHub Pages to view)*
+- **Contact:** To request access to the dataset, please email [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn). Cloud storage download links will be added soon.
 
 ## Authors
 
