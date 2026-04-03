@@ -6,6 +6,8 @@ title: "[Data Request] "
 
 Thank you for your interest in the **VRUD** dataset. Please fill in the fields below.
 
+> **Note:** Our reply will be sent to your GitHub account's default notification email. Please ensure it is up to date in your [GitHub notification settings](https://github.com/settings/notifications).
+
 ---
 
 **Full Name**
