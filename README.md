@@ -32,7 +32,7 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 
 To request access to VRUD, please download and fill in the application form below, then send it to one of the contact emails above.
 
-**[Download Application Form Template](./VRUD_Access_Application_Template.txt)**
+**[Download Application Form (Word)](./VRUD_Access_Application_Form.docx)**
 
 The form includes the following information:
 
@@ -43,8 +43,6 @@ The form includes the following information:
 | **Institution / Company** | Affiliated university, research institute, or company |
 | **Primary Purpose** | Academic research / commercial application / teaching / other |
 | **Detailed Description** | Please describe your research questions or application scenario clearly — a thorough description helps us process your request faster and allows us to recommend the most relevant data subsets |
-
-> **Tip:** The more clearly you describe your intended use, the faster we can respond and provide targeted support.
 
 ## Free Data Processing Service
 
