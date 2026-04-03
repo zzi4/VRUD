@@ -28,6 +28,41 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 - **GitHub:** [https://github.com/zzi4/VRUD](https://github.com/zzi4/VRUD)
 - **Contact:** To request access to the dataset, please email [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn) or [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn). Cloud storage download links will be added soon.
 
+## Data Access Application
+
+To request access to VRUD, please download and fill in the application form below, then send it to one of the contact emails above.
+
+**[Download Application Form Template](./VRUD_Access_Application_Template.txt)**
+
+The form includes the following information:
+
+| Field | Description |
+|-------|-------------|
+| **Full Name** | Applicant's full name |
+| **Email** | Contact email address |
+| **Institution / Company** | Affiliated university, research institute, or company |
+| **Primary Purpose** | Academic research / commercial application / teaching / other |
+| **Detailed Description** | Please describe your research questions or application scenario clearly — a thorough description helps us process your request faster and allows us to recommend the most relevant data subsets |
+
+> **Tip:** The more clearly you describe your intended use, the faster we can respond and provide targeted support.
+
+## Free Data Processing Service
+
+If you have already collected, or are planning to collect, drone-view traffic flow videos in urban or mixed-traffic environments, we are happy to help with data processing.
+
+**We offer free small-batch data processing**, including:
+- Object detection and tracking
+- Trajectory extraction and coordinate transformation
+- HD map generation (OpenDRIVE format)
+- VTTC-based interaction scenario extraction
+
+Processed results will be delivered back to you by email. **Please note:** by using this service, the processed data will also be incorporated into our own research database, and we reserve the right to use it for both academic research and commercial applications.
+
+For large-scale processing needs or commercial collaboration inquiries, please contact us directly:
+
+- [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn)
+- [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn)
+
 ## Authors
 
 Ziyu Wang, Hongrui Kou · Cheng Wang · Ruochen Li, Hubert P. H. Shum · **Yuxin Zhang*** (Corresponding)

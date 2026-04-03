@@ -291,6 +291,101 @@
             background: linear-gradient(180deg, transparent, var(--bg-secondary));
         }
 
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.1s;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+        }
+
+        .form-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .form-field {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+        }
+
+        .form-field .field-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-field .field-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .tip-box {
+            background: rgba(77, 171, 247, 0.08);
+            border: 1px solid rgba(77, 171, 247, 0.25);
+            border-radius: 8px;
+            padding: 0.9rem 1.2rem;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .tip-box strong {
+            color: var(--accent);
+        }
+
+        .service-list {
+            margin: 1.2rem 0 1.2rem 1.5rem;
+        }
+
+        .service-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .notice-box {
+            background: rgba(255, 200, 80, 0.07);
+            border: 1px solid rgba(255, 200, 80, 0.25);
+            border-radius: 8px;
+            padding: 0.9rem 1.2rem;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-links {
+            margin: 0.8rem 0;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.2rem;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
         .cta-section .badge {
             font-size: 1rem;
             padding: 0.9rem 1.8rem;
@@ -568,8 +663,75 @@
             <h2>Get the Dataset</h2>
             <p style="margin-bottom: 1.5rem;">VRUD is fully open-source. Download, explore, and contribute.</p>
             <a href="https://github.com/zzi4/VRUD" class="badge">📦 Download VRUD on GitHub</a>
-            <p style="margin-top: 1.2rem; font-size: 0.95rem; color: var(--text-secondary);">For access requests or collaboration inquiries, feel free to contact: <a href="mailto:yuxinzhang@jlu.edu.cn" style="color: var(--accent);">yuxinzhang@jlu.edu.cn</a> or <a href="mailto:ziyu25@mails.jlu.edu.cn" style="color: var(--accent);">ziyu25@mails.jlu.edu.cn</a></p>
+            <p style="margin-top: 1.2rem; font-size: 0.95rem; color: var(--text-secondary);">To request access, download the <a href="./VRUD_Access_Application_Template.txt" download style="color: var(--accent);">application form</a> and email it to: <a href="mailto:yuxinzhang@jlu.edu.cn" style="color: var(--accent);">yuxinzhang@jlu.edu.cn</a> or <a href="mailto:ziyu25@mails.jlu.edu.cn" style="color: var(--accent);">ziyu25@mails.jlu.edu.cn</a></p>
         </div>
+
+        <section>
+            <h2>Data Access Application</h2>
+            <p>To request access to VRUD, please download the application form template below, fill it in, and send it to one of our contact emails.</p>
+
+            <a href="./VRUD_Access_Application_Template.txt" download class="download-btn">⬇ Download Application Form Template</a>
+
+            <p>The form covers the following fields:</p>
+            <div class="form-fields">
+                <div class="form-field">
+                    <div class="field-name">Full Name</div>
+                    <div class="field-desc">Applicant's full name</div>
+                </div>
+                <div class="form-field">
+                    <div class="field-name">Email</div>
+                    <div class="field-desc">Contact email address</div>
+                </div>
+                <div class="form-field">
+                    <div class="field-name">Institution / Company</div>
+                    <div class="field-desc">Affiliated university, research institute, or company</div>
+                </div>
+                <div class="form-field">
+                    <div class="field-name">Primary Purpose</div>
+                    <div class="field-desc">Academic research / commercial application / teaching / other</div>
+                </div>
+                <div class="form-field">
+                    <div class="field-name">Detailed Description</div>
+                    <div class="field-desc">Your research questions or application scenario</div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>Tip:</strong> The more clearly you describe your intended use, the faster we can respond — and we can recommend the most relevant data subsets for your specific needs.
+            </div>
+
+            <p>Send completed forms to:
+                <span class="contact-links">
+                    <a href="mailto:yuxinzhang@jlu.edu.cn">yuxinzhang@jlu.edu.cn</a>
+                    <a href="mailto:ziyu25@mails.jlu.edu.cn">ziyu25@mails.jlu.edu.cn</a>
+                </span>
+            </p>
+        </section>
+
+        <section>
+            <h2>Free Data Processing Service</h2>
+            <p>If you have already collected — or are planning to collect — drone-view traffic flow videos in urban or mixed-traffic environments, we are happy to help with data processing.</p>
+
+            <p><strong style="color: var(--text-primary);">We offer free small-batch data processing</strong>, which can include:</p>
+            <ul class="service-list">
+                <li>Object detection and multi-class tracking</li>
+                <li>Trajectory extraction and coordinate transformation</li>
+                <li>HD map generation (OpenDRIVE format)</li>
+                <li>VTTC-based interaction scenario extraction</li>
+            </ul>
+
+            <p>Processed results will be delivered back to you by email.</p>
+
+            <div class="notice-box">
+                <strong style="color: #f0c040;">Please note:</strong> By using this service, the processed data will also be incorporated into our own research database. We reserve the right to use it for both <strong>academic research</strong> and <strong>commercial applications</strong>. For detailed terms or large-scale collaboration inquiries, please contact us directly.
+            </div>
+
+            <p>For large-scale processing, commercial licensing, or any collaboration inquiries, reach us at:</p>
+            <p class="contact-links">
+                <a href="mailto:yuxinzhang@jlu.edu.cn">yuxinzhang@jlu.edu.cn</a>
+                <a href="mailto:ziyu25@mails.jlu.edu.cn">ziyu25@mails.jlu.edu.cn</a>
+            </p>
+        </section>
 
         <section>
             <h2>Citation</h2>

@@ -1,0 +1,74 @@
+================================================================
+VRUD Dataset Access Application Form
+Vehicle-Vulnerable Road User Interaction Dataset
+================================================================
+
+Please fill in all fields and send this form to:
+  yuxinzhang@jlu.edu.cn  OR  ziyu25@mails.jlu.edu.cn
+
+Subject line: [VRUD Access Request] <Your Name>
+
+----------------------------------------------------------------
+APPLICANT INFORMATION
+----------------------------------------------------------------
+
+Full Name:        _______________________________________________
+
+Email Address:    _______________________________________________
+
+Institution /
+Company:          _______________________________________________
+
+Department /
+Team (optional):  _______________________________________________
+
+----------------------------------------------------------------
+INTENDED USE
+----------------------------------------------------------------
+
+Primary Purpose:
+  [ ] Academic Research
+  [ ] Industrial / Commercial Application
+  [ ] Teaching / Course Material
+  [ ] Other: _________________________________________________
+
+Research / Project Title (if applicable):
+_______________________________________________________________
+
+Detailed Description of Intended Use:
+(Please describe your research questions, application scenario,
+or project goals clearly. A clear description helps us process
+your request faster and may allow us to suggest the most
+relevant data subsets for your needs.)
+
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+
+Expected Data Usage Scale:
+  [ ] Small-scale exploration / proof-of-concept
+  [ ] Full dataset for research publication
+  [ ] Large-scale commercial deployment
+  [ ] Other: _________________________________________________
+
+Will results / findings be published?  [ ] Yes  [ ] No
+If yes, journal / conference target (optional):
+_______________________________________________________________
+
+----------------------------------------------------------------
+ACKNOWLEDGEMENT
+----------------------------------------------------------------
+
+By submitting this form, I confirm that:
+  [ ] I will use VRUD solely for the purpose described above.
+  [ ] I will include proper citation in any publications.
+  [ ] I will not redistribute the dataset without permission.
+
+Signature / Date: _____________________________________________
+
+================================================================
+Thank you for your interest in VRUD!
+We will respond as soon as possible.
+================================================================
