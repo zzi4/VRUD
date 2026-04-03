@@ -26,7 +26,7 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 ## Dataset Access
 
 - **GitHub:** [https://github.com/zzi4/VRUD](https://github.com/zzi4/VRUD)
-- **Contact:** To request access to the dataset, please email [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn) or [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn). Cloud storage download links will be added soon.
+- **Contact:** To request access to the dataset, please email [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn). Cloud storage download links will be added soon.
 
 ## Data Access Application
 
@@ -34,7 +34,7 @@ To request access to VRUD, choose either of the following methods:
 
 **Option 1 — GitHub Issue (recommended):** [Submit a Data Access Request](https://github.com/zzi4/VRUD/issues/new?template=data_access_request.yml) directly on GitHub. No email required.
 
-**Option 2 — Email:** Download the form, fill it in, and send to [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn) or [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn).
+**Option 2 — Email:** Download the form, fill it in, and send to [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn).
 [Download Application Form (Word)](./VRUD_Access_Application_Form.docx)
 
 Both options require: **Full Name**, **Institution / Company**, **Detailed Description of Intended Use**, and **Acknowledgement**.
@@ -53,7 +53,6 @@ Processed results will be delivered back to you by email. **Please note:** by us
 
 For large-scale processing needs or commercial collaboration inquiries, please contact us directly:
 
-- [yuxinzhang@jlu.edu.cn](mailto:yuxinzhang@jlu.edu.cn)
 - [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn)
 
 ## Authors
