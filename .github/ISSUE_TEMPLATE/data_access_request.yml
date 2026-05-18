@@ -1,0 +1,54 @@
+name: Data Access Request
+description: Apply for access to the VRUD dataset
+title: "[Data Request] "
+labels: ["data-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in the **VRUD** dataset.
+        Please fill in **all** fields below. We will reply to the
+        email address you provide here within a few working days.
+
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: The address we will send the dataset link to.
+      placeholder: yourname@university.edu
+    validations:
+      required: true
+
+  - type: input
+    id: full_name
+    attributes:
+      label: Full Name
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution / Company
+    validations:
+      required: true
+
+  - type: textarea
+    id: intended_use
+    attributes:
+      label: Detailed Description of Intended Use
+      description: Please describe your research questions, application scenario, or project goals.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I will use VRUD solely for the purpose described above.
+          required: true
+        - label: I will include proper citation in any publications using VRUD.
+          required: true
+        - label: I will not redistribute the raw dataset without prior written permission.
+          required: true
