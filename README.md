@@ -25,14 +25,8 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 
 ## Data Access Application
 
-To request access to VRUD, choose either of the following methods:
+To request access to VRUD, you can visit this website to apply. https://lab.autozyx.com/vrud.zh.html 
 
-**Option 1 — GitHub Issue (recommended):** [Submit a Data Access Request](https://github.com/zzi4/VRUD/issues/new/choose) directly on GitHub. No email required.
-
-**Option 2 — Email:** Download the form, fill it in, and send to [ziyu25@mails.jlu.edu.cn](mailto:ziyu25@mails.jlu.edu.cn).
-[Download Application Form (Word)](./VRUD_Access_Application_Form.docx)
-
-Both options require: **Full Name**, **Institution / Company**, **Detailed Description of Intended Use**, and **Acknowledgement**.
 
 ## Free Data Processing Service
 
