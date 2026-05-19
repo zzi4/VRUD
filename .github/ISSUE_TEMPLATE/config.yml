@@ -1,1 +1,8 @@
 blank_issues_enabled: false
+contact_links:
+  - name: 📝 Data Access Application (please use this — not GitHub issues)
+    url: https://lab.autozyx.com/vrud.zh.html
+    about: |
+      To apply for access to the VRUD dataset, please use our application form. We
+      no longer accept data access requests via GitHub issues — applications opened
+      here may not be processed. After review, we will email you the download link.
