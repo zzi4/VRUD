@@ -404,12 +404,15 @@
             .container { padding: 0 1rem; }
             section { padding: 2rem 0; }
         }
+        .figure .figure-caption { color: #475569; }
+        .table-scroll { overflow-x: auto; }
+        a { color: var(--accent); }
     </style>
 </head>
 <body>
     <header class="hero">
         <h1>VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic</h1>
-        <p class="subtitle">Vehicle-Vulnerable Road User Interaction Dataset from Urban Villages in Shenzhen</p>
+        <p class="subtitle">Vehicle–Vulnerable Road User Interaction Dataset · Three urban mixed-traffic sites</p>
         <div class="hero-video">
             <video controls playsinline preload="auto" muted loop autoplay poster="img/trajectory_visu/frame.jpg">
                 <source src="video/visu1_web.mp4" type="video/mp4">
@@ -420,100 +423,65 @@
     </header>
 
     <main class="container">
-        <section>
-            <h2>Abstract</h2>
-            <div class="abstract">
-                <p>The Operational Design Domain (ODD) of Level 4 (L4) autonomous driving confronts formidable challenges in urban mixed-traffic environments, primarily due to the high density of Vulnerable Road Users (VRUs) and unpredictable interaction behaviors. However, existing open-source datasets predominantly focus on structured scenarios such as highways or regulated intersections, leaving a critical gap in data representing chaotic, unstructured urban environments.</p>
-                <p>To address this, we propose an efficient, high-precision method for constructing drone-based datasets and establish the <strong>Vehicle-Vulnerable Road User Interaction Dataset (VRUD)</strong>. Distinct from prior works, VRUD is collected from typical "Urban Villages" in Shenzhen, characterized by loose traffic supervision and extreme occlusion. The dataset comprises <strong>4 hours of 4K/30Hz recording</strong>, containing <strong>11,479 VRU trajectories</strong> and <strong>1,939 vehicle trajectories</strong>. A key differentiator of VRUD is its composition: VRUs account for about <strong>87%</strong> of all traffic participants, significantly exceeding the proportions in existing benchmarks.</p>
-                <p>Furthermore, unlike datasets that only provide raw trajectories, we extracted <strong>4,002 multi-agent interaction scenarios</strong> based on a novel VTTC threshold, supported by standard OpenDRIVE HD maps. This study provides valuable, rare edge-case resources for enhancing the safety performance of ADS in complex, unstructured urban environments.</p>
-            </div>
-            <div class="keywords">
-                <span class="keyword">Urban mixed traffic</span>
-                <span class="keyword">Vulnerable Road Users</span>
-                <span class="keyword">Drone-based dataset</span>
-                <span class="keyword">Traffic conflict extraction</span>
-            </div>
+        <section id="overview">
+            <h2>Manuscript Overview</h2>
+            <div class="tip-box"><strong>Research inventory · 29 October 2026.</strong> The statistics below describe the three-site manuscript analysis. Dataset access is by application; the version and included resources supplied for a request are confirmed separately. This page does not distribute raw trajectories.</div>
+            <div class="abstract"><p>Urban mixed traffic requires automated vehicles to anticipate diverse interactions with vulnerable road users (VRUs), yet trajectory data describing these interactions in less structured road environments remain limited. This limits the development of prediction models and the selection of representative scenarios for automated-driving evaluation. We present VRUD, a drone-based trajectory dataset collected at three urban mixed-traffic sites, covering 8.11 hours and seven road-user categories. VRUs constitute 77.38% of its retained trajectory inventory. We adapt scenario.center-based behavior extraction to organize the data and characterize vehicle–VRU interactions through complementary spatial and temporal safety-surrogate measures. Analysis reveals behavior- and participant-dependent differences in clearance and temporal separation. A Trajectron++ benchmark using VRUD, SinD, and INTERACTION shows lower errors on the held-out VRUD acquisition with VRUD-specific training, and further gains from neighboring trajectories for the VRUD-trained model. Behavior-stratified evaluation of this model&#x27;s car forecasts identifies larger errors in several transition contexts than during following or completed opposing passage. These findings support evaluating prediction across interaction conditions and developing test libraries that consider both behavioral coverage and safety criticality. VRUD can support future research on interaction-aware trajectory prediction, cross-domain generalization, and safety-critical scenario mining and generation for automated-driving evaluation in mixed traffic. Dataset access requests: https://zzi4.github.io/VRUD/.</p></div>
+            <div class="keywords"><span class="keyword">Mixed traffic</span><span class="keyword">Vulnerable road users</span><span class="keyword">Behavior-conditioned analysis</span><span class="keyword">Trajectory prediction</span></div>
         </section>
-
         <section>
             <h2>Authors</h2>
-            <div class="authors">
-                <span class="author">Ziyu Wang </span>
-                <span class="author">Hongrui Kou</span>
-                <span class="author">Cheng Wang</span>
-                <span class="author">Ruochen Li</span>
-                <span class="author">Hubert P. H. Shum</span>
-                <span class="author">Yuxin Zhang (Corresponding)</span>
-            </div>
-            <p><small>National Key Laboratory of Automotive Chassis Integration and Bionics, Jilin University · Heriot-Watt University · Durham University</small></p>
+            <div class="authors"><span class="author">Ziyu Wang</span><span class="author">Hongrui Kou</span><span class="author">Cheng Wang</span><span class="author">Ruochen Li</span><span class="author">Hubert P. H. Shum</span><span class="author">Amir Atapour-Abarghouei</span><span class="author">Yuxin Zhang (Corresponding)</span></div>
+            <p><small>Jilin University · Heriot-Watt University · Durham University · DRIVEResearch</small></p>
         </section>
-
         <section>
-            <h2>Dataset Overview</h2>
+            <h2>Dataset Inventory</h2>
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">4h</div>
-                    <div class="label">4K/30Hz Recording</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">11,479</div>
-                    <div class="label">VRU Trajectories</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">1,939</div>
-                    <div class="label">Vehicle Trajectories</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">4,002</div>
-                    <div class="label">Interaction Scenarios</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">87%</div>
-                    <div class="label">VRU Proportion</div>
-                </div>
+                <div class="stat-card"><div class="number">8.11 h</div><div class="label">Recording exposure</div></div>
+                <div class="stat-card"><div class="number">135</div><div class="label">Recordings across 3 sites</div></div>
+                <div class="stat-card"><div class="number">18,491</div><div class="label">Retained trajectory instances</div></div>
+                <div class="stat-card"><div class="number">14,308</div><div class="label">VRU trajectories</div></div>
+                <div class="stat-card"><div class="number">4,183</div><div class="label">Car, truck and bus trajectories</div></div>
+                <div class="stat-card"><div class="number">77.38%</div><div class="label">VRU share of retained inventory</div></div>
             </div>
-
-            <div class="figure">
-                <img src="img/trajectory_visu/frame.jpg" alt="Detection and tracking results in VRUD" width="100%">
-                <p class="figure-caption">The detection results of different types of targets in VRUD are represented by bounding boxes in distinct colors, and the tracking trajectories are denoted by thin lines in the corresponding colors.</p>
-            </div>
+            <p>Seven categories distinguish cars, trucks, buses, pedestrians, bicycles, tricycles, and motorcycles. Inventory trajectories satisfy a rounded recorded travel-distance threshold of at least 2.00 m. Identities are local to each recording; repeated appearances across recordings are not deduplicated people. Motion and eligibility rules for behavior analysis and forecasting are defined separately.</p>
+            <div class="figure"><img src="img/trajectory_visu/frame.jpg" alt="Recorded road users with category-colored boxes and trajectories"><p class="figure-caption">Example observations from VRUD. Colors identify participant categories and their recorded paths.</p></div>
         </section>
-
         <section>
             <h2>Collection Sites</h2>
-            <p>Data was collected from two irregular intersections near residential areas in an urban village in Shenzhen, China. The traffic participants are highly diverse: buses, ride-hailing vehicles, food delivery electric bikes, and pedestrians. The surroundings include bus stops, apartments, and snack streets, with no traffic surveillance cameras.</p>
+            <p>Sites A and B are residential settings in Shenzhen. Site C adds a mixed-use street with crossings, a side-road junction, storefronts, and roadside stalls. Its 71 complete recordings total 4.40 hours across March 2, 3, 5, and 6, 2026; selection used dates, periods, and duration rather than observed interaction outcomes.</p>
             <div class="figure-row">
-                <div class="figure">
-                    <img src="img/trajectory_visu/29s_frame.jpg" alt="Irregular intersection scene" width="100%">
-                    <p class="figure-caption">Irregular intersection with two-way single-lane traffic, snack streets and residential apartment complexes.</p>
-                </div>
-                <div class="figure">
-                    <img src="img/trajectory_visu/78s_frame.jpg" alt="Two-way road scene" width="100%">
-                    <p class="figure-caption">Two-way single-lane road with residential apartments, bus stops and roadside parking.</p>
-                </div>
+                <div class="figure"><img src="img/trajectory_visu/29s_frame.jpg" alt="Site A residential intersection"><p class="figure-caption">Site A: residential intersection, 41 recordings, 2.41 h.</p></div>
+                <div class="figure"><img src="img/trajectory_visu/78s_frame.jpg" alt="Site B residential street"><p class="figure-caption">Site B: residential street, 23 recordings, 1.30 h.</p></div>
+                <div class="figure"><img src="img/manuscript_20261029/site_c.png" alt="Site C mixed-use street"><p class="figure-caption">Site C: mixed-use street, 71 recordings, 4.40 h.</p></div>
             </div>
+            <p>Sites A and B were recorded at 4K, nominally 30 fps and 80 m altitude. Those camera settings are not assumed for Site C. Registered OpenDRIVE maps support all three local coordinate frames.</p>
         </section>
-
         <section>
-            <h2>Trajectory Visualization</h2>
-            <p>Each subplot visualizes all annotated trajectories: (a) cars, buses, and trucks; (b) pedestrians and cyclists; (c) motorcycles and tricycles. The comparison reveals that VRU trajectory patterns are significantly more disordered and scattered.</p>
-            <div class="figure">
-                <img src="img/trajectory_visu/vehicle_trajectories_plot_4k.jpg" alt="Vehicle trajectories" width="100%">
-                <p class="figure-caption">(a) Cars, buses, and trucks</p>
-            </div>
-            <div class="figure">
-                <img src="img/trajectory_visu/vru_trajectories_plot_1_4k.jpg" alt="Pedestrian and cyclist trajectories" width="100%">
-                <p class="figure-caption">(b) Pedestrians and cyclists</p>
-            </div>
-            <div class="figure">
-                <img src="img/trajectory_visu/vru_trajectories_plot_2_4k.jpg" alt="Motorcycle and tricycle trajectories" width="100%">
-                <p class="figure-caption">(c) Motorcycles and tricycles</p>
-            </div>
+            <h2>Behavior-Based Organization</h2>
+            <p>The pipeline adapts scenario.center and CRUISE behavior concepts to trajectories and registered road semantics. A fixed car, truck, or bus ego can retain several associated participants and concurrent behavior labels. Following, approach, crossing, neighboring, passing, opposing passage, corridor transitions, and route contexts organize the observations before safety-surrogate analysis.</p>
+            <p>All 135 recordings are processed. The primary sustained-motion cohort contains <strong>16,944 behavior/process intervals involving 9,662 within-recording pairs</strong>. Both actors must have a continuous second at recorded speed of at least 0.5 m/s somewhere in their observed tracks; temporary stops remain. Intervals can overlap across behavior families and process views, so the count is not a count of independent physical encounters.</p>
+            <p>Pedestrian crossing is supported at matched intersection routes. Other relation detectors have explicit participant and map requirements. Unsupported topology and definitions with insufficient positive evidence remain distinguishable from observed zero counts; complete real-world behavior coverage and human-validated recall are not claimed.</p>
         </section>
-
+        <section>
+            <h2>Behavior-Conditioned Interaction Profiles</h2>
+            <p>Observed box clearance, constant-velocity body-contact TTC, exposure, conflict-area PET, and applicable longitudinal measures describe complementary aspects of the extracted intervals. The default TTC horizon is 5 s. Initial model overlap, invalid input, no predicted contact, and finite contact are distinct states; reference cutoffs are not calibrated accident-risk thresholds.</p>
+            <div class="figure"><a href="img/manuscript_20261029/interaction_profiles.png"><img src="img/manuscript_20261029/interaction_profiles.png" alt="Complete dense summary of behavior- and VRU-conditioned safety-surrogate distributions" loading="lazy"></a><p class="figure-caption">The full 47-panel manuscript summary retains behavior/VRU support, spatial and temporal distributions, and site, motion-rule and observation-quality sensitivities. Open the image for full-resolution inspection.</p></div>
+            <p>Examples include close passing with maintained separation, different opposing-passage clearance distributions for tricycles and motorcycles, and sequential or simultaneous conflict-area occupancy in pedestrian crossings. These are tendencies of the observed sample, not inferred personal intentions or a universal risk ranking.</p>
+        </section>
+        <section>
+            <h2>Inventory Statistics</h2>
+            <div class="figure"><img src="img/manuscript_20261029/class_inventory.png" alt="Updated seven-category trajectory counts and mean recorded speeds" loading="lazy"><p class="figure-caption">Counts and track-weighted mean recorded speeds for the distance-filtered inventory. Waiting periods remain in retained tracks.</p></div>
+            <div class="figure"><img src="img/manuscript_20261029/dataset_composition.png" alt="VRUD and reference dataset category composition" loading="lazy"><p class="figure-caption">The updated VRUD inventory alongside the manuscript's external reference counts. Reference cohorts and movement filters are not harmonized, so these plots are not a controlled density comparison.</p></div>
+        </section>
+        <section>
+            <h2>Trajectory Prediction and Scenario Diagnosis</h2>
+            <p>A map-free Trajectron++ benchmark compares VRUD, SinD, and INTERACTION under matched training budgets, separately trained neighboring-input ablations, and fixed-budget mixtures. VRUD-specific training improves errors on its held-out acquisition, and neighboring trajectories provide useful predictive information for the VRUD-trained model.</p>
+            <div class="figure"><img src="img/manuscript_20261029/prediction_strata.png" alt="Behavior- and criticality-stratified errors of car trajectory predictions" loading="lazy"><p class="figure-caption">An additional coordinate-reconciled evaluation of 3,214 car forecast windows from one held-out Site C acquisition. Motorcycle/tricycle categories describe counterparts; pedestrian/bicycle behavior membership is unsupported in this subset. Prediction error and safety criticality are distinct quantities.</p></div>
+        </section>
         <section>
             <h2>Data Validation</h2>
-            <p>Data accuracy was verified using a test vehicle equipped with RT inertial navigation equipment. A soft target vehicle performed chasing maneuvers; relative distance and velocity were compared against ground truth.</p>
+            <p>A separate controlled vehicle-following experiment compares extracted relative distance and target velocity with RT inertial navigation references. These curves describe that experiment; they do not constitute class-wise quality estimates for every trajectory in the inventory.</p>
             <div class="figure-row">
                 <div class="figure">
                     <img src="img/test1.jpg" alt="Relative distance validation" width="100%">
@@ -529,161 +497,23 @@
                 </div>
             </div>
         </section>
-
-        <section>
-            <h2>VTTC-Based Interaction Extraction</h2>
-            <p>We introduce Vector Time to Collision (VTTC) as a Surrogate Safety Measure to quantify interaction relevance. The upper quartile (Q3) value of 1.53s was adopted as the filtering threshold to maximize complex scenario retention while eliminating non-interactive noise.</p>
-            <div class="figure">
-                <img src="img/bhr_define/scenario_example.png" alt="Multi-agent interaction scenario" width="100%">
-                <p class="figure-caption">Multi-agent interaction scenario. Ego vehicle (ID 3913) interacts with highlighted critical targets.</p>
-            </div>
-            <div class="figure-row">
-                <div class="figure">
-                    <img src="img/Bar/VTTC2.png" alt="VTTC formula" width="100%">
-                </div>
-                <div class="figure">
-                    <img src="img/Bar/VTTC1.png" alt="VTTC example" width="100%">
-                </div>
-            </div>
-            <div class="figure">
-                <img src="img/Bar/mean_vttc_boxplot_by_n_vru_interactors.png" alt="VTTC boxplot" width="100%">
-                <p class="figure-caption">Positive correlation between VRU count, complexity, and mean VTTC.</p>
-            </div>
+        <section id="resources">
+            <h2>Resource and Version Information</h2>
+            <p>The manuscript's research material contains the following components. A request should identify the <strong>three-site inventory dated 29 October 2026</strong> and the components needed. The application response specifies the available package version and permitted use; this page does not imply that a new raw-data release has already been uploaded.</p>
+            <div class="table-scroll"><table><thead><tr><th>Component</th><th>Contents and interpretation</th></tr></thead><tbody>
+                <tr><td>Trajectories and attributes</td><td>Recording-local participant IDs, observed frames, positions in meters, heading in radians, footprint dimensions, recorded motion, and seven-category labels; gaps remain explicit.</td></tr>
+                <tr><td>Registered maps</td><td>OpenDRIVE maps for Sites A, B, and C in calibrated local frames; geographic east–north orientation is not assumed.</td></tr>
+                <tr><td>Behavior and SSM records</td><td>Fixed ego, associated participants, behavior intervals, common-observation series, applicable metrics, missing and invalid states.</td></tr>
+                <tr><td>Evaluation records</td><td>Eligibility rules, frozen prediction splits, model/seed results, behavior-linked test indices, and coordinate reconciliation records.</td></tr>
+            </tbody></table></div>
+            <p><a href="dataset_inventory_20261029.json">Read the machine-readable inventory description</a>. Research access remains subject to the terms stated in the application and the supplied package.</p>
         </section>
-
-        <section>
-            <h2>Dataset Statistics</h2>
-            <div class="figure">
-                <img src="img/Bar/datastatics_no_border.png" alt="Category distribution and velocity statistics" width="100%">
-                <p class="figure-caption">Categorical distribution and average velocity statistics. Pedestrians and motorcycles predominate; motorcycles show high traffic efficiency in unstructured environments.</p>
-            </div>
-
-            <h3>Comparison with Existing Datasets</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dataset</th>
-                        <th>Length</th>
-                        <th>Trajectories</th>
-                        <th>Road User Types</th>
-                        <th>HD Map</th>
-                        <th>Sample Freq</th>
-                        <th>Behavior Extraction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>INTERACTION</td>
-                        <td>16.5 h</td>
-                        <td>40054</td>
-                        <td>Pedestrian, bicycle, car</td>
-                        <td>lanelet2</td>
-                        <td>10 Hz</td>
-                        <td>no</td>
-                    </tr>
-                    <tr>
-                        <td>InD</td>
-                        <td>10.0 h</td>
-                        <td>13599</td>
-                        <td>Pedestrian, bicycle, car, bus</td>
-                        <td>lanelet2</td>
-                        <td>25 Hz</td>
-                        <td>no</td>
-                    </tr>
-                    <tr>
-                        <td>SIND</td>
-                        <td>7.0 h</td>
-                        <td>13248</td>
-                        <td>Car, bus, truck, bicycle, motorcycle, tricycle, pedestrian</td>
-                        <td>lanelet2</td>
-                        <td>10 Hz</td>
-                        <td>no</td>
-                    </tr>
-                    <tr>
-                        <td><strong>VRUD (ours)</strong></td>
-                        <td>4.0 h</td>
-                        <td><strong>12888</strong></td>
-                        <td>Car, bus, truck, bicycle, motorcycle, tricycle, pedestrian</td>
-                        <td><strong>OpenDRIVE</strong></td>
-                        <td><strong>30 Hz</strong></td>
-                        <td><strong>yes</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="figure">
-                <img src="img/Contrast_datasets/contrast_VRUD.png" alt="VRUD data distribution" width="100%">
-            </div>
-            <div class="figure-row">
-                <div class="figure">
-                    <img src="img/Contrast_datasets/contrast_inD.png" alt="inD comparison" width="100%">
-                </div>
-                <div class="figure">
-                    <img src="img/Contrast_datasets/contrast_SIND.png" alt="SIND comparison" width="100%">
-                </div>
-                <div class="figure">
-                    <img src="img/Contrast_datasets/contrast_INTERACTION.png" alt="INTERACTION comparison" width="100%">
-                </div>
-            </div>
-            <p class="figure-caption" style="margin-top:0.5rem">VRUD vs. inD, SIND, and INTERACTION: VRUs account for nearly half of VRUD, significantly exceeding other datasets.</p>
-        </section>
-
-        <section>
-            <h2>Behavioral Characterization</h2>
-            <p>The ego-vehicle maintains a tactical velocity corridor (17.5–20.0 km/h) to manage latent conflicts. VTTC distribution consistently clusters around 0.7s, serving as a proxy for interaction relevance. The 0.7s threshold establishes a robust quantitative filter for extracting high-value, interaction-critical samples.</p>
-            <div class="figure">
-                <img src="img/Bar/ego_speed_vru_hist.png" alt="Ego speed vs VRU count" width="100%">
-                <p class="figure-caption">Empirical ego-speed distribution relative to VRU counts. Quasi-normal distribution highlights low-speed maneuvering in urban mixed-traffic.</p>
-            </div>
-            <div class="figure">
-                <img src="img/Bar/vru_class_vru_speed_vttc_hist.png" alt="Velocity-VTTC coupling" width="100%">
-                <p class="figure-caption">Characterization of interaction intensity via velocity-VTTC coupling.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Contributions</h2>
-            <ul>
-                <li><strong>Large-scale, high-resolution dataset</strong> focusing on chaotic urban environments, featuring diverse VRU types and distinct mixed traffic characteristics.</li>
-                <li><strong>Comprehensive data processing pipeline</strong> with a standardized scenario library based on novel VTTC threshold, supported by OpenDRIVE HD maps.</li>
-                <li><strong>Detailed statistical analysis</strong> of VRU behaviors, revealing unique interaction patterns to support downstream ADS tasks.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Data Format</h2>
-            <ul>
-                <li><strong>Trajectory data:</strong> Static (dimensions, position, category, heading) and dynamic (velocity, acceleration, yaw rate) attributes in CSV format at 30 Hz.</li>
-                <li><strong>Map data:</strong> OpenDRIVE HD maps, high-resolution aerial base maps, calibration and conversion coefficients. All geographic information is anonymized.</li>
-                <li><strong>Interaction behavior data:</strong> Scenario index with Ego-vehicle ID, temporal window, and relevant traffic participant identifiers.</li>
-            </ul>
-        </section>
-
-        <div class="cta-section">
-            <h2>Get the Dataset</h2>
-            <p style="margin-bottom: 1.5rem;">VRUD is fully open-source. Download, explore, and contribute.</p>
-            <a href="https://github.com/zzi4/VRUD" class="badge">📦 Download VRUD on GitHub</a>
-        </div>
-
-        <section>
+        <div class="cta-section"><h2>Request Dataset Access</h2><p>Apply through the laboratory application page below.</p><a href="https://lab.autozyx.com/vrud.zh.html" class="badge">Open the access request form</a></div>
+        <section id="data-access">
             <h2>Data Access Application</h2>
-            <p>Choose either method below. Both require: <strong style="color: var(--text-primary);">Full Name</strong>, <strong style="color: var(--text-primary);">Institution / Company</strong>, <strong style="color: var(--text-primary);">Detailed Description of Intended Use</strong>, and <strong style="color: var(--text-primary);">Acknowledgement</strong>.</p>
-
-            <div class="form-fields" style="margin-top: 1.5rem;">
-                <div class="form-field">
-                    <div class="field-name">Option 1 — GitHub Issue</div>
-                    <div class="field-desc" style="margin-bottom: 1rem;">Fill in a structured form directly on GitHub. No email required.</div>
-                    <a href="https://github.com/zzi4/VRUD/issues/new/choose" class="download-btn" style="display:inline-flex; margin: 0.2rem 0 0;">Submit Request on GitHub</a>
-                </div>
-                <div class="form-field">
-                    <div class="field-name">Option 2 — Email</div>
-                    <div class="field-desc" style="margin-bottom: 1rem;">Download the Word form, fill it in, and send to one of our contact emails.</div>
-                    <a href="./VRUD_Access_Application_Form.docx" download class="download-btn" style="display:inline-flex; margin: 0.2rem 0 0;">⬇ Download Word Form</a>
-                    <p class="contact-links" style="margin-top: 0.8rem; margin-bottom: 0;">
-                        <a href="mailto:ziyu25@mails.jlu.edu.cn">ziyu25@mails.jlu.edu.cn</a>
-                    </p>
-                </div>
-            </div>
+            <p>Apply through the laboratory application page. GitHub issues are no longer a data-request channel. After review, the response provides the download instructions, extraction code, and the <a href="https://github.com/zzi4/vrud-viewer">vrud-viewer</a> inspection toolkit.</p>
+            <a href="https://lab.autozyx.com/vrud.zh.html" class="download-btn">Open the laboratory application page</a>
+            <p>The application page describes the distributed release. For the three-site manuscript analysis, specify the research inventory date and requested components so that the response can confirm the corresponding version and availability.</p>
         </section>
 
         <section>
@@ -695,7 +525,7 @@
                 <li>Object detection and multi-class tracking</li>
                 <li>Trajectory extraction and coordinate transformation</li>
                 <li>HD map generation (OpenDRIVE format)</li>
-                <li>VTTC-based interaction scenario extraction</li>
+                <li>Behavior-based interaction scenario organization and safety-surrogate analysis</li>
             </ul>
 
             <p>Processed results will be delivered back to you by email.</p>
@@ -712,7 +542,7 @@
 
         <section>
             <h2>Citation</h2>
-            <p>If you use VRUD in your research, please cite our paper:</p>
+            <p>The following citation identifies the VRUD preprint. The research inventory summarized on this page reflects the manuscript update dated 29 October 2026.</p>
             <pre style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; font-size: 0.85rem; color: var(--text-secondary); overflow-x: auto; line-height: 1.6; font-family: 'Courier New', monospace; text-align: left;">@misc{wang2026vruddronedatasetcomplex,
       title={VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic},
       author={Ziyu Wang and Hongrui Kou and Cheng Wang and Ruochen Li and Hubert P. H. Shum and Amir Atapour-Abarghouei and Yuxin Zhang},
@@ -727,7 +557,7 @@
 
     <footer>
         <p>VRUD · Vehicle-Vulnerable Road User Interaction Dataset · Jilin University · Heriot-Watt University · Durham University</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2025 · For research use in autonomous driving and VRU interaction studies.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 · For research use in autonomous driving and VRU interaction studies.</p>
     </footer>
 </body>
 </html>

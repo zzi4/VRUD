@@ -1,0 +1,61 @@
+{
+  "inventory_date": "2026-10-29",
+  "scope": "three-site manuscript research inventory",
+  "access": "by application; delivered package version and available components confirmed with request",
+  "raw_data_hosted_on_this_site": false,
+  "recordings": 135,
+  "recording_hours_rounded": 8.11,
+  "inventory": {
+    "unit": "within-recording trajectory instance",
+    "eligibility": "rounded recorded travel distance >= 2.00 m",
+    "tracks": 18491,
+    "vru_tracks": 14308,
+    "motor_vehicle_tracks": 4183,
+    "vru_percent": 77.38
+  },
+  "sites": [
+    {
+      "name": "Site A",
+      "setting": "residential intersection",
+      "recordings": 41,
+      "hours_rounded": 2.41
+    },
+    {
+      "name": "Site B",
+      "setting": "residential street",
+      "recordings": 23,
+      "hours_rounded": 1.3
+    },
+    {
+      "name": "Site C",
+      "setting": "mixed-use street",
+      "recordings": 71,
+      "hours_rounded": 4.4
+    }
+  ],
+  "maps": "registered OpenDRIVE at all three sites",
+  "behavior_ssm": {
+    "framework": "scenario.center/CRUISE-based adaptation",
+    "primary_intervals": 16944,
+    "within_recording_pairs": 9662,
+    "eligibility": "each actor has a continuous second at recorded speed >= 0.5 m/s somewhere in its observed track",
+    "overlap_allowed": true,
+    "independent_encounter_count": false
+  },
+  "forecasting": {
+    "model": "adapted map-free Trajectron++",
+    "supervised_classes": [
+      "CAR",
+      "pooled pedestrian/bicycle"
+    ],
+    "vru_counterpart_classes_in_behavior_linked_test": [
+      "motorcycle",
+      "tricycle"
+    ],
+    "behavior_linked_car_windows": 3214,
+    "test_acquisition_groups": 1
+  },
+  "access_url": "https://zzi4.github.io/VRUD/",
+  "request_url": "https://lab.autozyx.com/vrud.zh.html",
+  "request_channel": "laboratory application form; GitHub issues are no longer accepted"
+}

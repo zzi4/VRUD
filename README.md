@@ -1,27 +1,32 @@
 # VRUD: A Drone Dataset for Complex Vehicle-VRU Interactions within Mixed Traffic
 
-[![GitHub](https://img.shields.io/badge/Dataset-Open%20Source-blue)](https://github.com/zzi4/VRUD)
+[![Access](https://img.shields.io/badge/Dataset-Access%20by%20application-blue)](https://zzi4.github.io/VRUD/)
 
-**Vehicle-Vulnerable Road User Interaction Dataset** — Collected from urban villages in Shenzhen, China.
+**Vehicle–Vulnerable Road User Interaction Dataset** — Three urban mixed-traffic sites, including residential settings in Shenzhen and a mixed-use street.
 
-## Overview
+## Research Inventory — 29 October 2026
 
-VRUD addresses the critical gap in open-source datasets for **chaotic, unstructured urban mixed-traffic** environments. Unlike datasets focused on highways or regulated intersections, VRUD captures the "long-tail" scenarios where VRUs constitute the majority of traffic participants and interactions are driven by negotiation rather than rigid rules.
+The following figures describe the three-site manuscript analysis. The version and included resources supplied for an access request are confirmed separately; this repository does not distribute raw trajectories.
 
-| Metric | Value |
-|--------|-------|
-| **Recording** | 4 hours @ 4K/30Hz |
-| **VRU Trajectories** | 11,479 |
-| **Vehicle Trajectories** | 1,939 |
-| **Interaction Scenarios** | 4,002 |
-| **VRU Proportion** | ~87% |
+| Quantity | Value | Counting rule |
+|---|---:|---|
+| Recording exposure | 8.11 h / 135 recordings | Three sites; rounded hours |
+| Retained trajectories | 18,491 | Recording-local instances; rounded recorded distance ≥2.00 m |
+| VRU trajectories | 14,308 (77.38%) | Pedestrians, bicycles, tricycles, motorcycles |
+| Motor-vehicle trajectories | 4,183 | Cars, trucks, buses |
+| Primary behavior/SSM intervals | 16,944 | Separate sustained-motion cohort; intervals may overlap |
+| Within-recording pairs | 9,662 | Motor-vehicle ego and VRU counterpart |
 
-## Key Features
+Site A (residential intersection): 41 recordings / 2.41 h. Site B (residential street): 23 / 1.30 h. Site C (mixed-use street): 71 / 4.40 h. Registered OpenDRIVE maps cover all three sites. See [the inventory description](dataset_inventory_20261029.json) for machine-readable scope and counting rules.
 
-- **Extreme VRU density** — Pedestrians, motorcycles, tricycles, bicycles
-- **OpenDRIVE HD maps** — Standard format for map-based research
-- **VTTC-based scenario extraction** — 4,002 multi-agent interaction samples
-- **7 categories** — Cars, buses, trucks, bicycles, motorcycles, tricycles, pedestrians
+## Research Components
+
+- **Seven-category trajectories:** observed frames, local metric positions, heading, oriented-box dimensions and recorded motion; missing observations remain explicit.
+- **Behavior organization:** scenario.center/CRUISE-based adaptation with one fixed car/truck/bus ego, multiple associated participants and concurrent relations. Detector and map support are stated explicitly.
+- **Conditional SSM profiles:** clearance, body-contact TTC, exposure, conflict-area timing and applicable longitudinal measures. Reference cutoffs are not calibrated accident-risk boundaries.
+- **Prediction evaluation:** map-free Trajectron++ comparisons with SinD and INTERACTION; an additional 3,214-window car evaluation associates motorcycle/tricycle counterparts within one held-out acquisition.
+
+The inventory, behavior/SSM cohort and prediction windows have distinct eligibility rules and counting units. A raw count of overlapping behavior intervals is not a count of independent physical encounters. Public access uses the existing application process below. Specify the three-site inventory date and the requested trajectory, map, behavior/SSM or evaluation components; package availability is confirmed in the response.
 
 ## Data Access Application
 
@@ -35,6 +40,8 @@ VRUD addresses the critical gap in open-source datasets for **chaotic, unstructu
 > validating the data.
 
 
+The application page describes the distributed release. For the three-site manuscript analysis, specify the research inventory date and requested components; the response confirms the corresponding version and availability.
+
 ## Free Data Processing Service
 
 If you have already collected, or are planning to collect, drone-view traffic flow videos in urban or mixed-traffic environments, we are happy to help with data processing.
@@ -43,7 +50,7 @@ If you have already collected, or are planning to collect, drone-view traffic fl
 - Object detection and tracking
 - Trajectory extraction and coordinate transformation
 - HD map generation (OpenDRIVE format)
-- VTTC-based interaction scenario extraction
+- Behavior-based scenario organization and safety-surrogate analysis
 
 Processed results will be delivered back to you by email. **Please note:** by using this service, the processed data will also be incorporated into our own research database, and we reserve the right to use it for both academic research and commercial applications.
 
@@ -53,7 +60,7 @@ For large-scale processing needs or commercial collaboration inquiries, please c
 
 ## Authors
 
-Ziyu Wang, Hongrui Kou · Cheng Wang · Ruochen Li, Hubert P. H. Shum · **Yuxin Zhang*** (Corresponding)
+Ziyu Wang, Hongrui Kou · Cheng Wang · Ruochen Li, Hubert P. H. Shum, Amir Atapour-Abarghouei · **Yuxin Zhang*** (Corresponding)
 
 *Jilin University · Heriot-Watt University · Durham University*
 
