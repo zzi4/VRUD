@@ -5,6 +5,12 @@
   "raw_data_hosted_on_this_site": false,
   "recordings": 135,
   "recording_hours_rounded": 8.11,
+  "collection": {
+    "scope": "all three sites",
+    "resolution": "4K",
+    "flight_altitude_m": 80,
+    "nominal_frame_rate_fps": 30
+  },
   "inventory": {
     "unit": "within-recording trajectory instance",
     "eligibility": "rounded recorded travel distance >= 2.00 m",
@@ -17,18 +23,27 @@
     {
       "name": "Site A",
       "setting": "residential intersection",
+      "city": "Shenzhen",
+      "province": "Guangdong",
+      "country": "China",
       "recordings": 41,
       "hours_rounded": 2.41
     },
     {
       "name": "Site B",
       "setting": "residential street",
+      "city": "Shenzhen",
+      "province": "Guangdong",
+      "country": "China",
       "recordings": 23,
       "hours_rounded": 1.3
     },
     {
       "name": "Site C",
       "setting": "mixed-use street",
+      "city": "Shiyan",
+      "province": "Hubei",
+      "country": "China",
       "recordings": 71,
       "hours_rounded": 4.4
     }
@@ -36,6 +51,7 @@
   "maps": "registered OpenDRIVE at all three sites",
   "behavior_ssm": {
     "framework": "scenario.center/CRUISE-based adaptation",
+    "reported_vocabulary_scope": "relations supported by available map semantics and observations; does not establish detector recall or exhaustive real-world behavior coverage",
     "primary_intervals": 16944,
     "within_recording_pairs": 9662,
     "eligibility": "each actor has a continuous second at recorded speed >= 0.5 m/s somewhere in its observed track",

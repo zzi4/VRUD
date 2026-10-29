@@ -2,7 +2,7 @@
 
 [![Access](https://img.shields.io/badge/Dataset-Access%20by%20application-blue)](https://zzi4.github.io/VRUD/)
 
-**Vehicle–Vulnerable Road User Interaction Dataset** — Three urban mixed-traffic sites, including residential settings in Shenzhen and a mixed-use street.
+**Vehicle–Vulnerable Road User Interaction Dataset** — Three urban mixed-traffic sites in Shenzhen, Guangdong, China (Sites A and B) and Shiyan, Hubei, China (Site C).
 
 ## Research Inventory — 29 October 2026
 
@@ -17,14 +17,22 @@ The following figures describe the three-site manuscript analysis. The version a
 | Primary behavior/SSM intervals | 16,944 | Separate sustained-motion cohort; intervals may overlap |
 | Within-recording pairs | 9,662 | Motor-vehicle ego and VRU counterpart |
 
-Site A (residential intersection): 41 recordings / 2.41 h. Site B (residential street): 23 / 1.30 h. Site C (mixed-use street): 71 / 4.40 h. Registered OpenDRIVE maps cover all three sites. See [the inventory description](dataset_inventory_20261029.json) for machine-readable scope and counting rules.
+All three sites were recorded at **4K resolution, 80 m altitude, and a nominal frame rate of 30 fps**.
+
+| Site | Setting | Location | Recordings | Exposure |
+|---|---|---|---:|---:|
+| A | Residential intersection | Shenzhen, Guangdong, China | 41 | 2.41 h |
+| B | Residential street | Shenzhen, Guangdong, China | 23 | 1.30 h |
+| C | Mixed-use street | Shiyan, Hubei, China | 71 | 4.40 h |
+
+Registered OpenDRIVE maps cover all three sites. See [the inventory description](dataset_inventory_20261029.json) for machine-readable scope and counting rules. The website presents the current manuscript's [combined inventory and composition figure](img/manuscript_20261029/dataset_profile.png).
 
 ## Research Components
 
 - **Seven-category trajectories:** observed frames, local metric positions, heading, oriented-box dimensions and recorded motion; missing observations remain explicit.
-- **Behavior organization:** scenario.center/CRUISE-based adaptation with one fixed car/truck/bus ego, multiple associated participants and concurrent relations. Detector and map support are stated explicitly.
+- **Behavior organization:** scenario.center/CRUISE-based adaptation with one fixed car/truck/bus ego, multiple associated participants and concurrent relations. The reported vocabulary comprises relations supported by the available map semantics and observations; it does not establish detector recall or exhaustive real-world behavior coverage.
 - **Conditional SSM profiles:** clearance, body-contact TTC, exposure, conflict-area timing and applicable longitudinal measures. Reference cutoffs are not calibrated accident-risk boundaries.
-- **Prediction evaluation:** map-free Trajectron++ comparisons with SinD and INTERACTION; an additional 3,214-window car evaluation associates motorcycle/tricycle counterparts within one held-out acquisition.
+- **Prediction evaluation:** map-free Trajectron++ comparisons with SinD and INTERACTION, including [pure-source transfer and neighbor utility](img/manuscript_20261029/prediction_overview.png) and [fixed-budget source mixtures](img/manuscript_20261029/prediction_mixture.png); an additional 3,214-window car evaluation associates motorcycle/tricycle counterparts within one held-out acquisition.
 
 The inventory, behavior/SSM cohort and prediction windows have distinct eligibility rules and counting units. A raw count of overlapping behavior intervals is not a count of independent physical encounters. Public access uses the existing application process below. Specify the three-site inventory date and the requested trajectory, map, behavior/SSM or evaluation components; package availability is confirmed in the response.
 
