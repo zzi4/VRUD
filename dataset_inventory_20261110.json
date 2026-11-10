@@ -1,0 +1,202 @@
+{
+  "inventory_date": "2026-11-10",
+  "scope": "three-site manuscript research inventory",
+  "access": "by application; delivered package version and available components confirmed with the request",
+  "raw_data_hosted_on_this_site": false,
+  "recordings": 151,
+  "recording_hours_rounded": 8.5,
+  "collection": {
+    "scope": "all three sites",
+    "resolution": "4K",
+    "flight_altitude_m": 80,
+    "nominal_frame_rate_fps": 30
+  },
+  "inventory": {
+    "unit": "recording-local trajectory instance",
+    "eligibility": "round(recorded travel distance, 2) >= 2.00 m",
+    "tracks": 30554,
+    "vru_tracks": 22733,
+    "motor_vehicle_tracks": 7821,
+    "vru_percent": 74.4,
+    "categories": {
+      "car": 7469,
+      "truck": 199,
+      "bus": 153,
+      "pedestrian": 13399,
+      "bicycle": 138,
+      "tricycle": 775,
+      "motorcycle": 8421
+    }
+  },
+  "sites": [
+    {
+      "name": "Site A",
+      "setting": "residential intersection",
+      "city": "Shenzhen",
+      "province": "Guangdong",
+      "country": "China",
+      "acquisition_dates": [
+        "2024-07-19",
+        "2024-09-19"
+      ],
+      "recordings": 41,
+      "hours_rounded": 2.41
+    },
+    {
+      "name": "Site B",
+      "setting": "residential street",
+      "city": "Shenzhen",
+      "province": "Guangdong",
+      "country": "China",
+      "acquisition_dates": [
+        "2024-09-19"
+      ],
+      "recordings": 23,
+      "hours_rounded": 1.3
+    },
+    {
+      "name": "Site C",
+      "setting": "mixed-use junction and adjoining streets",
+      "city": "Changchun",
+      "province": "Jilin",
+      "country": "China",
+      "acquisition_dates": [
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-16",
+        "2026-10-17"
+      ],
+      "recordings": 87,
+      "hours_rounded": 4.78
+    }
+  ],
+  "maps": "Registered OpenDRIVE maps at all three sites",
+  "behavior_ssm": {
+    "principle": "relative motion, oriented-box spatial relations, and registered map semantics",
+    "behavior_categories": 13,
+    "primary_intervals": 14105,
+    "within_recording_ego_vru_pairs": 10264,
+    "eligibility": "each actor has >=1 continuous second at native recorded speed >=0.5 m/s somewhere in its observed track",
+    "unit": "recording-local directed ego-target x behavior interval",
+    "overlap_allowed": true,
+    "main_distribution_behavior_categories": 7,
+    "main_distribution_intervals": 13717,
+    "main_distribution_percent": 97.25,
+    "distribution_support": ">=30 finite/evaluable intervals from >=5 recordings within each behavior-VRU-metric cell",
+    "crossing_intervals": 3090,
+    "occupancy_supported_crossings": 2801,
+    "path_only_crossings": 289,
+    "crossing_vru_categories": [
+      "pedestrian",
+      "bicycle",
+      "tricycle",
+      "motorcycle"
+    ],
+    "PET_scope": "verified conflict-region occupancy only",
+    "types": [
+      {
+        "name": "Following a leader",
+        "definition": "Ego travels behind a same-route VRU while maintaining a roughly steady longitudinal gap.",
+        "primary_intervals": 683
+      },
+      {
+        "name": "Approaching a moving leader",
+        "definition": "Ego closes the longitudinal gap to a moving VRU ahead.",
+        "primary_intervals": 404
+      },
+      {
+        "name": "Approaching a stopped target",
+        "definition": "Ego closes the gap to a VRU that is currently stationary ahead.",
+        "primary_intervals": 142
+      },
+      {
+        "name": "Crossing",
+        "definition": "A VRU traverses ego's path with temporally associated passage.",
+        "primary_intervals": 3090
+      },
+      {
+        "name": "Opposing approach",
+        "definition": "An oncoming VRU ahead approaches ego within shared traffic space.",
+        "primary_intervals": 2735
+      },
+      {
+        "name": "Completed opposing passage",
+        "definition": "An opposite-direction VRU moves from ahead to behind ego while remaining laterally separated.",
+        "primary_intervals": 2674
+      },
+      {
+        "name": "Side neighbor",
+        "definition": "A VRU occupies nearby lateral space alongside ego.",
+        "primary_intervals": 3852
+      },
+      {
+        "name": "Ego passing",
+        "definition": "A same-direction VRU moves from fully ahead to fully behind ego, with continuous lateral separation.",
+        "primary_intervals": 279
+      },
+      {
+        "name": "Ego being passed",
+        "definition": "A same-direction VRU moves from fully behind to fully ahead of ego, with continuous lateral separation.",
+        "primary_intervals": 10
+      },
+      {
+        "name": "Corridor entry",
+        "definition": "A VRU moves from lateral space into ego's projected travel corridor, ahead or behind.",
+        "primary_intervals": 71
+      },
+      {
+        "name": "Corridor exit",
+        "definition": "A VRU leaves ego's projected travel corridor toward lateral space.",
+        "primary_intervals": 111
+      },
+      {
+        "name": "Route joining context",
+        "definition": "Ego and a VRU approach from different roads and converge onto a common outgoing lane path.",
+        "primary_intervals": 25
+      },
+      {
+        "name": "Route leaving context",
+        "definition": "Ego and a VRU share an incoming lane path and diverge toward different outgoing roads.",
+        "primary_intervals": 29
+      }
+    ]
+  },
+  "scenarios": {
+    "unit": "one selected motor-vehicle ego with successive or concurrent targets",
+    "scenes": 5513,
+    "scenes_with_multiple_targets": 4084,
+    "scenes_with_simultaneous_targets": 3032,
+    "counterpart_categories": [
+      "VRUs",
+      "other motor vehicles"
+    ]
+  },
+  "forecasting": {
+    "model": "map-free Trajectron++",
+    "supervised_classes": [
+      "CAR",
+      "pooled pedestrian/bicycle"
+    ],
+    "training_conditions": 7,
+    "random_seeds": 3,
+    "fitted_models": 21,
+    "main_evaluation_runs": 45,
+    "held_out_test": {
+      "site": "Site C",
+      "date": "2026-10-17",
+      "recordings": 25
+    },
+    "findings_status": "synchronized_with_current_manuscript",
+    "active_test_windows": 17229,
+    "active_car_test_windows": 5703,
+    "active_pedestrian_bicycle_test_windows": 11526,
+    "native_behavior_linked_car_windows": 1689,
+    "quality_eligible_detailed_behavior_car_windows": 1603,
+    "joint_quality_eligible_SSM_car_windows": 1536,
+    "pedestrian_crossing_quality_eligible_car_windows": 627,
+    "test_scope": "One held-out acquisition date at Site C; no claim of universal performance across unseen locations."
+  },
+  "access_url": "https://zzi4.github.io/VRUD/",
+  "request_url": "https://lab.autozyx.com/vrud.zh.html",
+  "request_channel": "laboratory application form; GitHub issues are no longer accepted"
+}

@@ -2,39 +2,49 @@
 
 [![Access](https://img.shields.io/badge/Dataset-Access%20by%20application-blue)](https://zzi4.github.io/VRUD/)
 
-**Vehicle–Vulnerable Road User Interaction Dataset** — Three urban mixed-traffic sites in Shenzhen, Guangdong, China (Sites A and B) and Shiyan, Hubei, China (Site C).
+**Vehicle–Vulnerable Road User Interaction Dataset** — Three urban mixed-traffic sites in Shenzhen, Guangdong, China (Sites A and B) and Changchun, Jilin, China (Site C).
 
-## Research Inventory — 29 October 2026
+## Research Inventory — 10 November 2026
 
-The following figures describe the three-site manuscript analysis. The version and included resources supplied for an access request are confirmed separately; this repository does not distribute raw trajectories.
+The figures below describe the updated three-site manuscript inventory. Dataset access is by application; the supplied version and included resources are confirmed in the response. This repository does not host raw trajectories.
 
 | Quantity | Value | Counting rule |
 |---|---:|---|
-| Recording exposure | 8.11 h / 135 recordings | Three sites; rounded hours |
-| Retained trajectories | 18,491 | Recording-local instances; rounded recorded distance ≥2.00 m |
-| VRU trajectories | 14,308 (77.38%) | Pedestrians, bicycles, tricycles, motorcycles |
-| Motor-vehicle trajectories | 4,183 | Cars, trucks, buses |
-| Primary behavior/SSM intervals | 16,944 | Separate sustained-motion cohort; intervals may overlap |
-| Within-recording pairs | 9,662 | Motor-vehicle ego and VRU counterpart |
+| Recording exposure | 8.50 h / 151 recordings | Three sites; rounded hours |
+| Retained trajectories | 30,554 | Recording-local tracks; rounded recorded travel distance ≥2.00 m |
+| VRU trajectories | 22,733 (74.40%) | Pedestrians, bicycles, tricycles, motorcycles |
+| Motor-vehicle trajectories | 7,821 | Cars, trucks, buses |
+| Primary behavior/SSM intervals | 14,105 | Sustained-motion directed-pair–behavior intervals; types may overlap |
+| Within-recording ego–VRU pairs | 10,264 | Distinct motor-vehicle ego and VRU counterpart identities |
+| Selected-ego scenes | 5,513 | One selected ego and multiple successive or concurrent targets |
+| Scenes with simultaneous targets | 3,032 | At least two distinct targets interacting concurrently |
 
-All three sites were recorded at **4K resolution, 80 m altitude, and a nominal frame rate of 30 fps**.
+All three sites use **4K resolution, an 80 m flight altitude, and a nominal frame rate of 30 fps**.
 
 | Site | Setting | Location | Recordings | Exposure |
 |---|---|---|---:|---:|
 | A | Residential intersection | Shenzhen, Guangdong, China | 41 | 2.41 h |
 | B | Residential street | Shenzhen, Guangdong, China | 23 | 1.30 h |
-| C | Mixed-use street | Shiyan, Hubei, China | 71 | 4.40 h |
+| C | Mixed-use junction and adjoining streets | Changchun, Jilin, China | 87 | 4.78 h |
 
-Registered OpenDRIVE maps cover all three sites. See [the inventory description](dataset_inventory_20261029.json) for machine-readable scope and counting rules. The website presents the current manuscript's [combined inventory and composition figure](img/manuscript_20261029/dataset_profile.png).
+Site C contains all 87 available recordings from October 13, 14, 16, and 17, 2026. Registered OpenDRIVE maps cover all three sites. See [the machine-readable inventory](dataset_inventory_20261110.json) and [the combined category inventory and composition figure](img/manuscript_20261110/dataset_profile.png).
+
+## Manuscript Overview
+
+Automated driving in dense mixed traffic requires anticipating interactions between motor vehicles and heterogeneous vulnerable road users (VRUs) sharing limited road space. Uneven trajectory-data coverage of narrow streets and roadside activity restricts the development and evaluation of models for these environments. We present VRUD, a drone-based dataset collected at three urban mixed-traffic sites, comprising 8.50 hours, 30,554 retained trajectories, and seven road-user categories. VRUs constitute 74.40% of its retained trajectory inventory. Encounters are organized around a selected motor vehicle, preserving surrounding participants and their successive or concurrent behavior relations. Complementary spatial and temporal safety-surrogate measures characterize behavior- and participant-dependent interaction conditions. Forecasting experiments highlight the value of representative mixed-traffic training data and surrounding trajectories, while behavior-conditioned evaluation exposes differences hidden by aggregate errors. Together, the trajectory resource, interaction profiles, and forecasting benchmark support the study of heterogeneous mixed traffic and the selection of test conditions through behavioral coverage and safety criticality. VRUD can support research on interaction-aware prediction, cross-domain generalization, and scenario mining and generation for automated-driving evaluation. Dataset access requests: https://zzi4.github.io/VRUD/.
 
 ## Research Components
 
-- **Seven-category trajectories:** observed frames, local metric positions, heading, oriented-box dimensions and recorded motion; missing observations remain explicit.
-- **Behavior organization:** scenario.center/CRUISE-based adaptation with one fixed car/truck/bus ego, multiple associated participants and concurrent relations. The reported vocabulary comprises relations supported by the available map semantics and observations; it does not establish detector recall or exhaustive real-world behavior coverage.
-- **Conditional SSM profiles:** clearance, body-contact TTC, exposure, conflict-area timing and applicable longitudinal measures. Reference cutoffs are not calibrated accident-risk boundaries.
-- **Prediction evaluation:** map-free Trajectron++ comparisons with SinD and INTERACTION, including [pure-source transfer and neighbor utility](img/manuscript_20261029/prediction_overview.png) and [fixed-budget source mixtures](img/manuscript_20261029/prediction_mixture.png); an additional 3,214-window car evaluation associates motorcycle/tricycle counterparts within one held-out acquisition.
+- **Seven-category trajectories:** observed frames, local metric positions, heading, oriented-box dimensions, native motion attributes, and recording-local identities.
+- **Multi-participant scene organization:** relative motion, oriented-box spatial relations, and registered map semantics define successive or concurrent behaviors around a selected car/truck/bus ego. Multiple VRUs and other motor vehicles can participate in one scene.
+- **Shared behavior vocabulary:** 13 behavior types separate the motion relation from road-user category. Crossing uses one definition across pedestrians, bicycles, tricycles, and motorcycles.
+- **Conditional interaction profiles:** clearance, body-contact TTC, exposure, conflict-region PET, braking, and applicable longitudinal measures. [Seven supported behavior types](img/manuscript_20261110/interaction_profiles.png) cover 97.25% of primary intervals; distributions require ≥30 valid observations from ≥5 recordings in each behavior–VRU–metric cell.
+- **Crossing evidence:** 3,090 intervals include 2,801 occupancy-supported and 289 path-only crossings. PET is evaluated for occupancy-supported crossings.
+- **Prediction evaluation:** map-free Trajectron++ comparisons use VRUD, SinD, and INTERACTION, with seven training conditions and three seeds (21 fitted models; 45 main cross-dataset evaluations). Conditions examine source transfer, neighboring trajectories, and held-out-location generalization. Updated plots are [cross-dataset prediction](img/manuscript_20261110/prediction_overview.png), [context and generalization evidence](img/manuscript_20261110/prediction_evidence.png), and [behavior-stratified prediction](img/manuscript_20261110/prediction_strata.png).
 
-The inventory, behavior/SSM cohort and prediction windows have distinct eligibility rules and counting units. A raw count of overlapping behavior intervals is not a count of independent physical encounters. Public access uses the existing application process below. Specify the three-site inventory date and the requested trajectory, map, behavior/SSM or evaluation components; package availability is confirmed in the response.
+A common map-free Trajectron++ protocol uses 13,312 class-balanced training targets per condition and evaluates 1 s of observations followed by 3 s of prediction. On the held-out Site C date, the VRUD-trained model achieves class-macro minADE@6 of 0.367 ± 0.011 m, compared with 0.486 ± 0.002 m for SinD training and 0.721 ± 0.012 m for INTERACTION training. CAR and pooled pedestrian/bicycle targets receive equal weight in this macro average. Training on Sites A and B only gives 0.463 ± 0.008 m on the same test windows. Full neighboring context reduces CAR minADE@6 from 0.566 to 0.525 m. Behavior-linked analysis identifies 1,689 CAR windows; 1,603 have at least one quality-eligible detailed relation, while 1,536 satisfy the stricter pooled safety-surrogate checks. Pedestrian crossing contributes 627 clean windows across 25 recordings. These results describe one predictor and one held-out VRUD date; observed density and concurrent relations do not establish a monotonic context benefit. All ± values denote sample standard deviation across three training seeds.
+
+The inventory, behavior intervals, selected-ego scenes, and forecast windows have different eligibility rules and counting units. A behavior interval requires each actor to have at least one continuous second at native speed ≥0.5 m/s somewhere in its track; temporary stops are retained. One scenario can contain multiple directed-pair behavior intervals. Specify the inventory date and requested trajectory, map, behavior/SSM, or evaluation components in an access request.
 
 ## Data Access Application
 
