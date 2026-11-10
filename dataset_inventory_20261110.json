@@ -190,11 +190,13 @@
     "active_test_windows": 17229,
     "active_car_test_windows": 5703,
     "active_pedestrian_bicycle_test_windows": 11526,
-    "native_behavior_linked_car_windows": 1689,
-    "quality_eligible_detailed_behavior_car_windows": 1603,
-    "joint_quality_eligible_SSM_car_windows": 1536,
-    "pedestrian_crossing_quality_eligible_car_windows": 627,
-    "test_scope": "One held-out acquisition date at Site C; no claim of universal performance across unseen locations."
+    "quality_eligible_detailed_behavior_car_windows": 1940,
+    "joint_quality_eligible_SSM_car_windows": 1862,
+    "pedestrian_crossing_quality_eligible_car_windows": 679,
+    "test_scope": "One held-out acquisition date at Site C; no claim of universal performance across unseen locations.",
+    "behavior_linked_car_windows": 2023,
+    "quality_eligible_detailed_behavior_cells": 2840,
+    "diagnostic_representation": "full ego-centered behavior interval index"
   },
   "access_url": "https://zzi4.github.io/VRUD/",
   "request_url": "https://lab.autozyx.com/vrud.zh.html",
